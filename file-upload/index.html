@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MapReduce – File Upload Version</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-900 text-white p-4 md:p-8">
+
+  <div class="max-w-3xl mx-auto space-y-6">
+
+    <div class="flex flex-col md:flex-row md:items-center gap-4">
+      
+      <div>
+        <h1 class="text-2xl md:text-3xl font-bold">MapReduce Word Counter (Upload Files)</h1>
+        <p class="text-gray-400 text-sm md:text-base">
+          Upload two text files and run MapReduce.
+        </p>
+      </div>
+
+      <div class="md:ml-auto">
+        <a href="../"
+          class="border border-red-500 p-3 rounded bg-yellow-900 text-sm inline-flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide pr-2">
+            <path d="M12 3v12"/>
+            <path d="m17 8-5-5-5 5"/>
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          </svg>
+          Text Inputs
+        </a>
+      </div>
+
+    </div>
+
+    <div>
+      <label class="font-semibold">Upload First Text File</label>
+      <input id="file1" type="file" accept=".txt"
+        class="block w-full mt-2 p-3 bg-gray-800 rounded" onchange="handleFile1(event)" />
+    </div>
+
+    <div>
+      <label class="font-semibold">Upload Second Text File</label>
+      <input id="file2" type="file" accept=".txt"
+        class="block w-full mt-2 p-3 bg-gray-800 rounded" onchange="handleFile2(event)" />
+    </div>
+
+    <button id="processUploadBtn"
+      class="w-full py-3 bg-green-600 hover:bg-green-700 rounded text-lg font-semibold">
+      Run MapReduce on Uploaded Files
+    </button>
+
+    <h2 class="text-xl font-semibold">Output:</h2>
+
+    <pre id="uploadOutput"
+      class="bg-gray-800 p-4 rounded min-h-[120px] whitespace-pre-wrap"></pre>
+
+  </div>
+
+  <script>
+    // Variables to hold uploaded files
+    let uploadFile1 = null;
+    let uploadFile2 = null;
+
+    function handleFile1(event) {
+        uploadFile1 = event.target.files[0];
+    }
+
+    function handleFile2(event) {
+        uploadFile2 = event.target.files[0];
+    }
+
+    function mapReduceFileUploads(text) {
+        const words = text.toLowerCase().match(/\b[a-z0-9]+\b/g) || [];
+        const counters = {};
+
+        words.forEach(w => counters[w] = (counters[w] || 0) + 1);
+
+        let output = "Word Count Result (Uploaded Files):\n\n";
+        for (let w in counters) output += `${w}: ${counters[w]}\n`;
+        return output;
+    }
+
+    document.getElementById("processUploadBtn").addEventListener("click", async () => {
+        if (!uploadFile1 || !uploadFile2) {
+            document.getElementById("uploadOutput").textContent = "Please upload both files before processing.";
+            return;
+        }
+
+        const text1 = await uploadFile1.text();
+        const text2 = await uploadFile2.text();
+
+        document.getElementById("uploadOutput").textContent =
+            mapReduceFileUploads(text1 + " " + text2);
+    });
+  </script>
+
+</body>
+</html>
