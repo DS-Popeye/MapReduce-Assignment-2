@@ -8,7 +8,7 @@ This project demonstrates the core concepts of the **MapReduce** programming mod
 Both versions apply **MapReduce Word Count** on two different data inputs.
 
 Live Demo:  
-👉 **http://rabiulawalshuvo.me/MapReduce-Assignment-2/**
+👉 **https://ds-popeye.github.io/MapReduce-Assignment-2/**
 
 ---
 
@@ -109,6 +109,10 @@ Example styling:
 
 ## 🚀 How to Run the Project
 
+### Fork this repository
+
+`https://github.com/DS-Popeye/MapReduce-Assignment-2.git`
+
 ### Option A – Open Directly (index.html works offline)
 Just open `index.html` in any browser.
 
@@ -136,8 +140,23 @@ Right-click → Open with Live Server
 **MD Rabiul Awal Shuvo**  
 Full-Stack Developer & Data Science Enthusiast  
 
-🔗 Portfolio: http://rabiulawalshuvo.me  
+🔗 Portfolio: https://ds-popeye.github.io/  
 🔗 GitHub: https://github.com/DS-Popeye  
 
 ---
 
+# Demo
+
+## Desktop File upload
+<img src="./mapreduce-fileupload-desktop.png" alt="">
+
+## Desktop Text filled
+
+<img src="./mapreduce-text-input-desktop.png" alt="">
+
+## mobile File upload
+<img src="./mapreduce-fileupload-mobile.png" alt="">
+
+## mobile Text filled
+
+<img src="./mapreduce-text-input-mobile.png" alt="">
