@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MapReduce App</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white p-8">
+
+  <div class="max-w-3xl mx-auto space-y-6">
+
+    <h1 class="text-3xl font-bold text-center mb-8">MapReduce Word Counter</h1>
+
+    <!-- Input 1 -->
+    <div>
+      <label class="font-semibold">Input Text 1</label>
+      <textarea id="text1" class="w-full p-3 mt-2 bg-gray-800 rounded h-32 text-white"
+                placeholder="Enter first text..."></textarea>
+    </div>
+
+    <!-- Input 2 -->
+    <div>
+      <label class="font-semibold">Input Text 2</label>
+      <textarea id="text2" class="w-full p-3 mt-2 bg-gray-800 rounded h-32 text-white"
+                placeholder="Enter second text..."></textarea>
+    </div>
+
+    <!-- Process Button -->
+    <button id="processBtn"
+      class="w-full py-3 bg-blue-600 hover:bg-blue-700 rounded text-lg font-semibold">
+      Run MapReduce
+    </button>
+
+    <!-- Output -->
+    <h2 class="text-xl font-semibold">Output:</h2>
+    <pre id="output"
+      class="bg-gray-800 p-4 rounded min-h-[120px] whitespace-pre-wrap"></pre>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
